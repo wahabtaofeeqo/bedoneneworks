@@ -13,7 +13,6 @@
 	@include("partials.header")
 
 	<main id="main">
-
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
@@ -36,7 +35,7 @@
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
              	Customers can however sell their bitcoins and have money from the sales of the btc sent to their bank account.
-				Banks don’t support bitcoin but we offer a secure medium of exchange where bitcoins would be exchanged with local currency.
+				      Banks don’t support bitcoin but we offer a secure medium of exchange where bitcoins would be exchanged with local currency.
             </p>
             <a href="#contact" class="btn-learn-more">Contact Us</a>
           </div>
@@ -99,7 +98,7 @@
 
           </div>
 
-          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("assets/coin.png");' data-aos="zoom-in" data-aos-delay="150">
+          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("assets/bh.png");' data-aos="zoom-in" data-aos-delay="150">
           	
           </div>
         </div>
@@ -116,9 +115,9 @@
             <img src="assets/skills.png" class="img-fluid" alt="">
           </div> -->
           <div class="col-lg-12 px-0 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
-            <h3 class="mb-4">Market Today</h3>
+            <h3 class="mb-4 text-center-md">Market Today</h3>
 
-            <div class="card">
+            <div class="card table-responsive" style="border-left: none; border-right: none; border-bottom: none;">
             	<table class="table table-striped">
             	<thead>
             		<tr>
@@ -175,7 +174,7 @@
     </section><!-- End Skills Section -->
 
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services section-bg">
+    <section id="testimonials" class="services section-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -185,39 +184,26 @@
           </p>
         </div>
 
-        <div class="row">
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-            </div>
-          </div>
+        <div class="owl-carousel col-12 text-center">
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Sed ut perspici</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-            </div>
-          </div>
+          <?php if (isset($testimonials) && !empty($testimonials)): ?>
+            @foreach($testimonials as $row) 
+              <div class="" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box" style="overflow-x: hidden;">
+                  <h4><a href="">{{$row['name']}}</a></h4>
+                  <blockquote style="font-style: italic;">
+                    {{$row['content']}}
+                  </blockquote>
+                </div>
+              </div>
+            @endforeach
+          <?php endif ?>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-            </div>
-          </div>
+        </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-layer"></i></div>
-              <h4><a href="">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-            </div>
-          </div>
-
+        <div class="row d-none">
+          
+        
         </div>
 
       </div>
@@ -261,24 +247,28 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="contact" method="POST" role="form" class="php-email-form">
+            <form action="contact" method="POST" role="form" class="php-email-form" id="contactForm">
             	@csrf   
               <div class="form-group">
                   <label for="name">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
-                  <div class="validate"></div>
-                </div>
+                  <input type="email" class="form-control" required="" name="email"/>
+              </div>
+
               <div class="form-group">
                 <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
-                <div class="validate"></div>
+                <textarea class="form-control" name="message" required="" rows="10"></textarea>
               </div>
+
               <div class="mb-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+
+              <div class="text-center">
+                <button type="submit">Send Message</button>
+              </div>
+
             </form>
           </div>
 

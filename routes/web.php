@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'MainController@index');
-Route::post('/contact', 'MainController@create');
+Route::post('/contact', 'MainController@store');
+Route::post('/subscribe', 'MainController@subscribe');

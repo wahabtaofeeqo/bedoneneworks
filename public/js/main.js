@@ -181,14 +181,6 @@
     });
   });
 
-  // Portfolio details carousel
-  $(".portfolio-details-carousel").owlCarousel({
-    autoplay: true,
-    dots: true,
-    loop: true,
-    items: 1
-  });
-
   // Init AOS
   function aos_init() {
     AOS.init({
@@ -199,5 +191,67 @@
   $(window).on('load', function() {
     aos_init();
   });
+
+  // Contact us
+  $("#contactForm").submit(function(e) {
+    e.preventDefault();
+
+    var url = $(this).attr("action");
+    $(".loading").fadeIn();
+
+    $.ajax({
+      url: url,
+      type: 'POST',
+      data: $(this).serialize(),
+      success: function(response) {
+        $(".sent-message").fadeIn();
+      },
+      error: function(err) {
+        $(".error-message").text("Email not sent").fadeIn();
+      }
+    })
+
+     $(".loading").fadeOut();
+  });
+
+  // Newsletter
+  $("#newsletterForm").submit(function(e) {
+    e.preventDefault();
+
+    var url = $(this).attr("action");
+    var type = $(this).attr("method");
+    var data = $(this).serialize();
+
+    $.ajax({
+      url: url,
+      type: type,
+      data: data,
+      success: function(response) {
+        alert(response);
+      },
+      error: function(err) {
+        alert("Operation not Successful");
+      }
+    });
+  });
+
+  // Carousel
+  $(".owl-carousel").owlCarousel({
+    autoplay: true,
+    dots: true,
+    margin: 10,
+    responsive:{
+        0:{
+            items: 1
+        },
+        600:{
+            items: 4
+        },
+        1000:{
+            items: 4
+        }
+    }
+  });
+
 
 })(jQuery);

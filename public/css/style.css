@@ -1839,4 +1839,8 @@ section {
   #footer .credits {
     padding-top: 4px;
   }
+
+  .text-center-md {
+    text-align: center;
+  }
 }

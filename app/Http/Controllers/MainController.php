@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use Codenixsv\CoinGeckoApi\CoinGeckoClient;
 
+use App\Testimonials;
+use App\Newsletter;
+
 class MainController extends Controller
 {
     /**
@@ -17,8 +20,9 @@ class MainController extends Controller
 
         $client = new CoinGeckoClient();
         $data = $client->coins()->getMarkets('usd');
+        $testimonials = Testimonials::all()->toArray();
 
-        return view('index', compact('data'));
+        return view('index', compact('data', 'testimonials'));
     }
 
     /**
@@ -37,7 +41,31 @@ class MainController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        //
+
+        $to = "taofeekolamilekan218@gmail.com";
+        $resource = "";
+        $error;
+
+        $email = $request->get("email");
+        $message = $request->get("message");
+
+        if (!empty($email) && !empty($message)) {
+            
+            $header = "From: $email";
+
+            try {
+                mail($to, "Hello", $message, $header);
+                $response = "Email sent. Thank you";
+            } catch (Exception $e) {
+                $response = "Email not sent: " . $e->getMessage();
+            }
+        }
+        else {
+
+            $response = "Email and Message must be provided";
+        }
+
+        return $request->get("message");
     }
 
     /**
@@ -79,5 +107,26 @@ class MainController extends Controller
      */
     public function destroy($id) {
         //
+    }
+
+    public function subscribe(Request $request) {
+
+        $response;
+        $email = $request->get("email");
+
+        if (!empty($email)) {
+            
+            $obj = new Newsletter;
+            
+            $obj->email = $email;
+            $obj->save();
+
+            $response = "Subscribed. Thank You";
+        }
+        else {
+            $response = "Email not provided";
+        }
+
+        return $response;
     }
 }

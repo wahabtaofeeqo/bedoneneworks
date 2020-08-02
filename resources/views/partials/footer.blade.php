@@ -7,8 +7,10 @@
           <div class="col-lg-6">
             <h4>Join Our Newsletter</h4>
             <p>We will only send useful information and not disturb you.</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+            <form action="subscribe" method="post" method="POST" id="newsletterForm">
+              @csrf
+              <input type="email" name="email" required="" placeholder="Email">
+              <input type="submit" value="Subscribe">
             </form>
           </div>
         </div>
@@ -33,8 +35,7 @@
             <h4>Quick Link</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#services">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Testimonials</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#testimonials">Testimonials</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#contact">Contact us</a></li>
             </ul>
           </div>
@@ -46,7 +47,7 @@
             <div class="social-links mt-3">
               <a href="https://instagram.com/bedonenetworks12" class="instagram"><i class="bx bxl-instagram"></i></a>
               <a href="https://wa.me/2348020833029" class="google-plus"><i class="bx bxl-whatsapp"></i></a>
-              <a href="https://facebook.com/" class="linkedin"><i class="bx bxl-facebook"></i></a>
+              <a href="https://facebook.com/be done omolade" class="linkedin"><i class="bx bxl-facebook"></i></a>
             </div>
           </div>
 
