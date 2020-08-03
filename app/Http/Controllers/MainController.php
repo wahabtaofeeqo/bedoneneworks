@@ -31,7 +31,7 @@ class MainController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create() {
-       return "Hello World";
+     
     }
 
     /**
@@ -111,20 +111,32 @@ class MainController extends Controller
 
     public function subscribe(Request $request) {
 
-        $response;
+        $response = array('error' => FAlSE);
         $email = $request->get("email");
 
         if (!empty($email)) {
             
             $obj = new Newsletter;
             
-            $obj->email = $email;
-            $obj->save();
+            $check = $obj->where("email", $email);
 
-            $response = "Subscribed. Thank You";
+            if (!$check) {
+                $obj->email = $email;
+                $obj->save();
+
+                $response['error'] = FAlSE;
+                $response['message'] = "Subscribed. Thank You.";
+            }
+            else {
+
+                $response['error'] = TRUE;
+                $response['message'] = "Email already exist.";
+            }
         }
         else {
-            $response = "Email not provided";
+
+            $response['error'] = TRUE;
+            $response['message'] = "Email not provided.";
         }
 
         return $response;

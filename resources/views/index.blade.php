@@ -4,7 +4,7 @@
 
 	<meta charset="utf-8">
   	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<title>Be Done Networks| Buy Bitcoin, Gifcard from exchange made easy!</title>
+	<title>Be Done Networks| Buy Bitcoin, Gifcard exchange made easy!</title>
 
 	@include("partials.cssFiles")
 </head>
@@ -53,7 +53,7 @@
           <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
 
             <div class="content mb-4">
-              <h3>Bitcoin Exchange <strong>At easy</strong></h3>
+              <h3>Bitcoin Exchange <strong>At ease</strong></h3>
               <p class="">
                 Using <strong>Be Done Networks</strong> provides quite a lot benefits. Some of the key ones are:
               </p>
@@ -111,10 +111,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="row">
-         <!--  <div class="col-lg-4 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
-            <img src="assets/skills.png" class="img-fluid" alt="">
-          </div> -->
-          <div class="col-lg-12 px-0 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
+          <div class="col-lg-12 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
             <h3 class="mb-4 text-center-md">Market Today</h3>
 
             <div class="card table-responsive" style="border-left: none; border-right: none; border-bottom: none;">

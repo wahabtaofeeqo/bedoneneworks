@@ -227,10 +227,14 @@
       type: type,
       data: data,
       success: function(response) {
-        alert(response);
+        if(response['error'])
+          swal("", response['message'], 'info');
+        else
+          swal("", response['message'], 'success');
       },
       error: function(err) {
-        alert("Operation not Successful");
+        swal("", "Operation not Successful", 'error');
+        console.log(err);
       }
     });
   });

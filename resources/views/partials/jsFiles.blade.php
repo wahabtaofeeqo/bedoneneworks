@@ -5,4 +5,5 @@
 <script type="text/javascript" src="{{asset('vendor/venobox/venobox.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendor/owl.carousel/owl.carousel.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendor/aos/aos.js')}}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
